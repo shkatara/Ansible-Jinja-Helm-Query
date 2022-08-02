@@ -1,0 +1,21 @@
+- name: get helm info
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: get all helm
+      command: helm ls -A -o json
+      register: all_helm
+    - name: list
+      set_fact:
+        new_var: "{{all_helm.stdout_lines[0]}}"
+
+
+    - name: print newvar
+      debug:
+        var: new_var[1]
+    
+    - name: print all_helm
+      template:
+        src: temp.j2
+        dest: out.j2 

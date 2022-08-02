@@ -1,0 +1,7 @@
+
+chartName,chartNamespace,chartRevision,chartStatus,chartAppVersion,chartVersion,chartUpdated
+
+{% for a in new_var %}
+{{ a.name }},{{a.namespace}},{{a.revision}},{{a.status}},{{a.app_version}},{{a.chart}}{{a.updated}}
+{% endfor -%}
+
